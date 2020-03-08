@@ -10,8 +10,8 @@ public class AccountHolder {
 	    private CheckingAccount[] checkingAccount;
 	    private SavingsAccount[] savingsAccount;
 	    
-	    // keep track of numbers of checkings and saving accounts
-	    private int numberOfCheckings = 0;
+	    // keep track of numbers of checking and saving accounts
+	    private int numberOfChecking = 0;
 	    private int numberOfSavings = 0;
 
 	    AccountHolder (){}
@@ -22,15 +22,15 @@ public class AccountHolder {
 	        this.lastName = lastName;
 	        this.ssn = ssn;
 	        
-	        // instantiate array of Checkings
+	        // instantiate array of Checking
 	        checkingAccount = new CheckingAccount[10];
 	        savingsAccount = new SavingsAccount[10];
 	        // checkingQuantity 
-	        this.checkingAccount[numberOfCheckings] = new CheckingAccount(checkingAccountOpeningBalance);
-	        this.savingsAccount[numberOfSaving] = new SavingsAccount(savingsAccountOpeningBalance);
+	        this.checkingAccount[numberOfChecking] = new CheckingAccount(checkingAccountOpeningBalance);
+	        this.savingsAccount[numberOfSavings] = new SavingsAccount(savingsAccountOpeningBalance);
 	        
-	        // increment number of checkings and savings index;
-	        numberOfCheckings++;
+	        // increment number of checking and savings index;
+	        numberOfChecking++;
 	        numberOfSavings++;
 	    }
 	    
@@ -59,11 +59,11 @@ public class AccountHolder {
 	    public void setSSN(String ssn) {
 	        this.ssn = ssn;
 	    }
-	    public CheckingAccount getCheckingAccount() {
+	    public CheckingAccount[] getCheckingAccount() {
 	        return checkingAccount;
 	    }
 
-	    public SavingsAccount getSavingsAccount() {
+	    public SavingsAccount[] getSavingsAccount() {
 	        return savingsAccount;
 	    }
 
@@ -71,16 +71,16 @@ public class AccountHolder {
 	    public String toString() {
 	        return "First Name:" + this.firstName + "\n"  + "Middle Name:" + this.middleName +  "\n"  + "Last Name:" + this.lastName
 	                +  "\n" + "SSN:" + this.ssn +  "\n"  +"Checking Account Balance:" + this.checkingAccount.getBalance() +
-	                "\n" + "Savings Account Balance:" + this.savingsAccount.getBalance();
+	                "\n" + "Savings Account Balance:" + this.savingsAccount.getBalance(); //Error around these two, get invoke get balance, asking to get lenght. Why?
 	    }
 	    
 	    CheckingAccount addCheckingAccount(double openingBalance) {
-	    	this.checkingAccount[this.numberOfCheckings] = new CheckingAccount(openingBalance);
+	    	this.checkingAccount[this.numberOfChecking] = new CheckingAccount(openingBalance);
 	    	
-	    	// increment number of checkings
-	    	this.numberOfCheckings++;
+	    	// increment number of checking
+	    	this.numberOfChecking++;
 	    	
-	    	return checkingAccount[this.numberOfCheckings - 1];
+	    	return checkingAccount[this.numberOfChecking - 1];
 	    }
 
 }
